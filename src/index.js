@@ -3,10 +3,23 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import {createGlobalStyle} from 'styled-components';
+import Stateprovider from './components/stateprovider';
+
+const GlobalStyle =createGlobalStyle`
+html,body{
+  background-color:#220045;
+  font-size:62.5%
+}
+
+`
 
 ReactDOM.render(
   <React.StrictMode>
+    <Stateprovider>
+    <GlobalStyle/>
     <App />
+    </Stateprovider>
   </React.StrictMode>,
   document.getElementById('root')
 );

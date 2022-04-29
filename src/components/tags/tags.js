@@ -40,7 +40,7 @@ const Tags = () => {
   return (
     <Tagcontainer>{
         ["work","Short Break", "Long Break"].map((tag,i)=>{
-          return  <div><Tag activeTag={activeTag === i} onClick={()=>handletag(i)}>{tag}</Tag></div>
+          return  <div><Tag activeTag={activeTag == i} onClick={()=>handletag(i)}>{tag}</Tag></div>
         })
         
         }</Tagcontainer>

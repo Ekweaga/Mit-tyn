@@ -3,9 +3,8 @@ import styled from 'styled-components'
 import { Statecontext } from '../../../stateprovider';
 
 function Clock() {
-  const {time, settime} = useContext(Statecontext)
-  const {isactive,setactive} = useContext(Statecontext)
-
+  const {time, settime,inittime,isactive,setactive} = useContext(Statecontext)
+  
   useEffect(()=>{
     if( isactive && time > 0){
       const interval = setInterval(()=>{
@@ -23,8 +22,12 @@ function Clock() {
     const sec = Math.floor(time % 60);
     return `${min < 10 ? "0" + min : min} : ${sec < 10 ? "0" + sec : sec}`
   }
+  const reset = ()=>{
+    settime(inittime);
+    setactive(false)
+  }
     const ClockContainer = styled.div`
-color:white;
+
 display:grid;
 place-items:center;
     `;
@@ -40,10 +43,19 @@ place-items:center;
     letter-spacing:0.5rem;
     text-transform:uppercase;
     `
+    const Reset = styled.button`
+    color:red;
+    all:unset;
+    text-align:center;
+    cursor:pointer;
+    letter-spacing:0.5rem;
+    text-transform:uppercase;
+    `
   return (
     <ClockContainer>
         <TimerText>{gettime(time)}</TimerText>
             <StartPauseButton onClick={toggleclock}>{isactive ? "PAUSE":"START"}</StartPauseButton>
+          {time === 0  &&   <Reset onClick={reset}>RESET</Reset>}
 
     </ClockContainer>
   )

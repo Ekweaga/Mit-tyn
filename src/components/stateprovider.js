@@ -45,6 +45,8 @@ export const Stateprovider = ({children}) =>{
       setworktime,
       shortbreaktime, 
       setshortbreaktime,
+      longBreaktime,
+      setlongbreaktime,
       inittime
       ,setinittime}}>{children}</Statecontext.Provider>
 }

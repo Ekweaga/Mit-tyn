@@ -5,6 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {createGlobalStyle} from 'styled-components';
 import Stateprovider from './components/stateprovider';
+import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 
 const GlobalStyle =createGlobalStyle`
 html,body{
@@ -23,6 +24,7 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById('root')
 );
+serviceWorkerRegistration.register();
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

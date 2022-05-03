@@ -1,12 +1,18 @@
 import React from 'react'
 import Backdrop from './backdrop'
 import Modalcontainer from './modalcontainer'
+import { motion,AnimatePresence } from 'framer-motion'
 
-function Modal() {
+function Modal({isopen, close}) {
   return (
-   <><Backdrop/>
-   <Modalcontainer/>
-
+   <>
+   <AnimatePresence>
+   
+   {isopen &&(
+     <><Backdrop/>
+   <Modalcontainer isopen={isopen} close={close}/></>)
+   }
+</AnimatePresence>
    </>
   )
 }
